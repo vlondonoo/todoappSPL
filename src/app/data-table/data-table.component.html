@@ -7,20 +7,8 @@
 
   <ng-container matColumnDef="message">
     <!--B-modifySort-->
-
-<!--Code replaced by: Images-alterModifySort-->
-<th
-      mat-header-cell
-      *matHeaderCellDef
-      mat-sort-header
-      sortActionDescription="Sort by task"
-      matSort
-      (matSortChange)="announceSortChange($event)"
-    >
-      Message
-    </th>
-<!--Code replaced by: Images-alterModifySort-->
-<!--E-modifySort-->
+    <th mat-header-cell *matHeaderCellDef>Message</th>
+    <!--E-modifySort-->
     <td mat-cell *matCellDef="let element">{{ element.message }}</td>
   </ng-container>
 
