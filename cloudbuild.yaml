@@ -7,4 +7,4 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['ps']
 images:
-- 'gcr.io/todoapp-340315/workspace_app'
+- 'workspace_app'
