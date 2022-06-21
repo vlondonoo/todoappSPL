@@ -3,6 +3,11 @@ import { TodoService } from '../todo.service';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 /*B-addImport*/
 
+/*Code injected by: Images-alterAddImport*/
+import {MatSort, Sort} from '@angular/material/sort';
+/*Code injected by: Images-alterAddImport*/
+
+
 @Component({
   selector: 'app-data-table',
   templateUrl: './data-table.component.html',
@@ -17,6 +22,11 @@ export class DataTableComponent implements OnInit {
   
   constructor(private todoService:TodoService, private _liveAnnouncer: LiveAnnouncer) { }
   /*B-addViewChild*/
+
+/*Code injected by: Images-alterAddViewChild*/
+@ViewChild(MatSort) sort: MatSort | undefined;
+/*Code injected by: Images-alterAddViewChild*/
+
   dataSource2:any
   
   ngOnInit(): void {
@@ -38,6 +48,20 @@ export class DataTableComponent implements OnInit {
   }
 
  /*B-addannounceSortChange*/
+
+/*Code injected by: Images-alterAddannounceSortChange*/
+announceSortChange(sortState: Sort) {
+            const selectService = this.dataSource[0].state === 'OPEN' ? this.todoService.sortPendingTasks(sortState.direction) : this.todoService.sortClosedTasks(sortState.direction);
+            selectService.subscribe((data:any)=>{this.dataSource = data.list})
+
+            if (sortState.direction) {
+            this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+            } else {
+            this._liveAnnouncer.announce('Sorting cleared');
+            }
+        }
+/*Code injected by: Images-alterAddannounceSortChange*/
+
 
 
 }
