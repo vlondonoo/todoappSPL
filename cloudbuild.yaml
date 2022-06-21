@@ -1,4 +1,4 @@
 steps:
 # Build the container image
-- name: 'docker/compose'
-  args: ['up', '-d']
+- name: 'docker/compose:1.19.0'
+  args: ['-f', 'docker-compose.yml','up', '-d']
