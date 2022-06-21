@@ -4,3 +4,5 @@ steps:
   args: ['up', '-d']
   env:
   - 'PROJECT_ID=$PROJECT_ID'
+- name: 'docker/compose:1.11.2'
+  args: ['ps']
