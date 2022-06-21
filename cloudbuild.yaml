@@ -6,3 +6,5 @@ steps:
   - 'PROJECT_ID=$PROJECT_ID'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['ps']
+images:
+- 'gcr.io/todoapp-340315/workspace_app'
