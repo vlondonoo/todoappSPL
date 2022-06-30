@@ -4,21 +4,11 @@ const dotenv = require('dotenv');
 const todoController = require("./controllers/todoController");
 /*B-addImports*/
 
-/*Code injected by: Images-alterAddImports*/
-const fileUpload = require('express-fileupload');
-/*Code injected by: Images-alterAddImports*/
-
-
 var cors = require('cors');
 dotenv.config();
 const app = express();
 
 /*B-addFileUpload*/
-
-/*Code injected by: Images-alterAddRoutes*/
-app.use(fileUpload());
-/*Code injected by: Images-alterAddRoutes*/
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

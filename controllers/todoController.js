@@ -2,11 +2,6 @@ const { TodoModel } = require('../db/sequelize');
 const fs = require('fs');
 /*B-addConstants*/
 
-/*Code injected by: Images-alterAddConstants*/
-const { IMAGE_FOLDER_PATH } = require('../constants');
-/*Code injected by: Images-alterAddConstants*/
-
-
 exports.list = async function (req, res) {
   const todos = await TodoModel.findAll();
   res.send({ "list": todos });
@@ -44,15 +39,6 @@ exports.listOrderedPending = async function (req, res) {
 exports.add = async (req, res) => {
   let imageName = '';
   /*B-addMethodInstructions*/
-
-/*Code injected by: Images-alterAddMethodInstructions*/
-if (req.files && req.files.file && req.files.file.name) {
-        imageName = `${Date.now()}_${req.files.file.name}`;
-        const newpath = `${IMAGE_FOLDER_PATH}/${imageName}`;
-        fs.writeFileSync(newpath, req.files.file.data);
-      }
-/*Code injected by: Images-alterAddMethodInstructions*/
-
   await TodoModel.create({
     message: req.body.task,
     state: "OPEN",
@@ -65,20 +51,6 @@ if (req.files && req.files.file && req.files.file.name) {
 exports.delete = async (req, res) => {
   const id = req.params.id;
   /*B-addDeleteMethodInstructions*/
-
-/*Code injected by: Images-alterControllerImage*/
-await TodoModel.findAll({ where: { 'id': id } }).then(data => {
-      if (data[0].dataValues.image && data[0].dataValues.image != '') {
-        const newpath = `${IMAGE_FOLDER_PATH}/${data[0].dataValues.image}`;
-        try {
-          fs.unlinkSync(newpath);
-        } catch (err) {
-          console.error(err);
-        }
-      }
-    });
-/*Code injected by: Images-alterControllerImage*/
-
   await TodoModel.destroy({ where: { id: id } });
   res.send({});
 };

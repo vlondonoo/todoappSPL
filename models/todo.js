@@ -9,10 +9,5 @@ module.exports = (sequelize, type) => {
     message: type.STRING,
     state: type.STRING,
     /*B-addAtributes*/
-
-/*Code injected by: Images-addAtributes*/
-image: type.STRING
-/*Code injected by: Images-addAtributes*/
-
   })
 }
