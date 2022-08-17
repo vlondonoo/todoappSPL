@@ -1,4 +1,4 @@
-/*BCP-cloud-config*/
+
 # Review 
 steps:
 # Build the container image
@@ -14,4 +14,3 @@ steps:
   args: ['run', 'deploy', 'todoappspl', '--image', 'gcr.io/todoapp-340315/todoappspl:$COMMIT_SHA', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
 images:
 - 'gcr.io/todoapp-340315/todoappspl:$COMMIT_SHA'
-/*ECP-cloud-config*/
