@@ -65,11 +65,6 @@ sortPendingTasks(direction:any){
  
  createTask(formData:any) { 
    /*B-addUploadImages*/
-
-/*Code injected by: Images-alterAddConstants*/
-console.log('adding images')
-/*Code injected by: Images-alterAddConstants*/
-
   return this.http.post(`${BACKEND_URI}/todos`,formData).pipe(
     tap(_ => console.log('image uploaded')),
     )}  

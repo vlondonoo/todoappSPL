@@ -23,14 +23,6 @@ export class CreateTaskComponent implements OnInit {
 
   /*B-addOnChange*/
 
-/*Code injected by: Images-alterAddOnChange*/
-onChange(event:any) {
-            this.file = event.target.files[0];
-            this.file.path = this.profileForm.value.imageData;
-        }
-/*Code injected by: Images-alterAddOnChange*/
-
-
   create() {
     this.loading = !this.loading;
     const formData = new FormData();
@@ -38,20 +30,9 @@ onChange(event:any) {
 
     /*B-adduploadImage*/
 
-/*Code injected by: Images-alterAddUploadImage*/
-if(this.file){
-            formData.append("file", this.file, this.file.name);
-            formData.append('path',this.file.path);
-      }
-/*Code injected by: Images-alterAddUploadImage*/
-
-
     /*B-modifyTaskName*/
-
-/*Code replaced by: Images-alterModifyTaskName*/
-this.todoService.createTask(formData).subscribe(
-/*Code replaced by: Images-alterModifyTaskName*/
-/*E-modifyTaskName*/
+    this.todoService.createTask({task: this.profileForm.value.task}).subscribe(
+    /*E-modifyTaskName*/
       (event: any) => {
         if (typeof (event) === 'object') {
             this.shortLink = event.link;
